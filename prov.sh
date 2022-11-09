@@ -111,6 +111,14 @@ Icon=web-browser
 
 chmod u+x /home/vagrant/Desktop/*.desktop
 
+# Neo4j installation
+# https://debian.neo4j.com/
+log "Install Neo4j."
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.com stable latest' | sudo tee /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+sudo apt-get install -y neo4j
+
 log "Clean-up"
 sudo apt-get remove -yq \
         snapd \

@@ -11,6 +11,7 @@ This repository is used to automatically build an [eMoflon::Neo](https://emoflon
 - [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 - [Graphviz](https://graphviz.org/)
 - [eMoflon Neo Eclipse build](https://github.com/maxkratz/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
+- [Neo4j](https://neo4j.com/)
 
 
 ## Usage/Installation
