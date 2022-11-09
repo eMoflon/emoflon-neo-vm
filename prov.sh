@@ -46,7 +46,7 @@ cd ~/eclipse-apps
 # Get eclipse
 if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
 	log "Downloading latest eMoflon Eclipse archive from Github."
-	curl -s https://api.github.com/repos/eMoflon/emoflon-ibex-eclipse-build/releases/latest \
+	curl -s https://api.github.com/repos/maxkratz/emoflon-neo-eclipse-build/releases/latest \
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
@@ -68,9 +68,9 @@ touch /home/vagrant/Desktop/emoflon-app.desktop
 printf "
 [Desktop Entry]
 Version=1.0
-Name=eMoflon::IBeX Eclipse
-Comment=Use eMoflon::IBeX Eclipse
-GenericName=eMoflon::IBeX Eclipse
+Name=eMoflon::Neo Eclipse
+Comment=Use eMoflon::Neo Eclipse
+GenericName=eMoflon::Neo Eclipse
 Exec=bash -c \"cd /home/vagrant/eclipse-apps/eclipse && ./eclipse\"
 Terminal=false
 X-MultipleArgs=false
@@ -83,29 +83,29 @@ touch /home/vagrant/Desktop/emoflon-website.desktop
 printf "
 [Desktop Entry]
 Encoding=UTF-8
-Name=eMoflon::IBeX Website
+Name=eMoflon::Neo Website
 Type=Link
-URL=https://emoflon.org/ibex
+URL=https://emoflon.org/neo
 Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-website.desktop
 
-touch /home/vagrant/Desktop/emoflon-tutorial.desktop
-printf "
-[Desktop Entry]
-Encoding=UTF-8
-Name=eMoflon::IBeX Tutorial
-Type=Link
-URL=https://github.com/eMoflon/emoflon-ibex-tutorial/releases/latest
-Icon=web-browser
-" > /home/vagrant/Desktop/emoflon-tutorial.desktop
+#touch /home/vagrant/Desktop/emoflon-tutorial.desktop
+#printf "
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=eMoflon::IBeX Tutorial
+#Type=Link
+#URL=https://github.com/eMoflon/emoflon-ibex-tutorial/releases/latest
+#Icon=web-browser
+#" > /home/vagrant/Desktop/emoflon-tutorial.desktop
 
 touch /home/vagrant/Desktop/emoflon-tests.desktop
 printf "
 [Desktop Entry]
 Encoding=UTF-8
-Name=eMoflon::IBeX Test Suite
+Name=eMoflon::Neo Test Suite
 Type=Link
-URL=https://github.com/eMoflon/emoflon-ibex-tests
+URL=https://github.com/eMoflon/emoflon-neo/blob/master/projectSetRuntime.psf
 Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-tests.desktop
 
