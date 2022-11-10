@@ -109,6 +109,16 @@ URL=https://github.com/eMoflon/emoflon-neo/blob/master/projectSetRuntime.psf
 Icon=web-browser
 " > /home/vagrant/Desktop/emoflon-tests.desktop
 
+touch /home/vagrant/Desktop/neo4j.desktop
+printf "
+[Desktop Entry]
+Encoding=UTF-8
+Name=Neo4j Browser
+Type=Link
+URL=localhost:7474
+Icon=web-browser
+" > /home/vagrant/Desktop/neo4j.desktop
+
 chmod u+x /home/vagrant/Desktop/*.desktop
 
 # Neo4j installation
@@ -118,6 +128,7 @@ wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
 echo 'deb https://debian.neo4j.com stable latest' | sudo tee /etc/apt/sources.list.d/neo4j.list
 sudo apt-get update
 sudo apt-get install -y neo4j
+sudo systemctl enable neo4j
 
 log "Clean-up"
 sudo apt-get remove -yq \
