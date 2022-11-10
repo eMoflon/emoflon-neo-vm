@@ -1,8 +1,8 @@
-# eMoflon::IBeX VM
+# eMoflon::Neo VM
 
-[![Build eMoflon::IBeX VM](https://github.com/eMoflon/emoflon-ibex-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/eMoflon/emoflon-ibex-vm/actions/workflows/vagrant-up.yml)
+[![Build eMoflon::Neo VM](https://github.com/maxkratz/emoflon-neo-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/maxkratz/emoflon-neo-vm/actions/workflows/vagrant-up.yml)
 
-This repository is used to automatically build an [eMoflon](https://emoflon.org) virtual machine (VM).
+This repository is used to automatically build an [eMoflon::Neo](https://emoflon.org/neo/) virtual machine (VM).
 
 
 ## Packages/Configuration
@@ -10,12 +10,13 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 - [Ubuntu 20.04](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-desktop)
 - [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 - [Graphviz](https://graphviz.org/)
-- [eMoflon IBeX Eclipse build](https://github.com/eMoflon/emoflon-ibex-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
+- [eMoflon Neo Eclipse build](https://github.com/maxkratz/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
+- [Neo4j](https://neo4j.com/)
 
 
 ## Usage/Installation
 
-- Download the latest version from the [release page](https://github.com/eMoflon/emoflon-ibex-vm/releases/latest).
+- Download the latest version from the [release page](https://github.com/maxkratz/emoflon-neo-vm/releases/latest).
 - Install [VirtualBox](https://www.virtualbox.org/) (or another Hypervisor compatible to `OVA` files).
 - Import the `OVA` file as new VM in VirtualBox. (More detailed description can be found [here](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).)
 - Use the credentials `vagrant:vagrant` to login.
@@ -23,7 +24,7 @@ This repository is used to automatically build an [eMoflon](https://emoflon.org)
 
 **Please notice:**
 - The default configuration for this VM image consists 8GB of RAM and 2 vCPU cores.
-You need at least 8GB to run the full [eMoflon::IBeX test suite](https://github.com/eMoflon/emoflon-ibex-tests). If your PC only has 8GB of RAM available, reduce the RAM capacity of the VM within VirtualBox
+You need at least 8GB to run the full [eMoflon::Neo test suite](https://github.com/eMoflon/emoflon-neo/blob/master/projectSetRuntime.psf). If your PC only has 8GB of RAM available, reduce the RAM capacity of the VM within VirtualBox
 - It is recommend to change the settings to at least 4 vCPU cores.
 
 
@@ -35,7 +36,7 @@ There are two ways to provide this project with runners.
 
 Unfortunately, only the macOS-based GitHub-hosted action runners do support nested virtualization: https://github.com/actions/runner-images/issues/433
 
-Therefore, we've adapted the CI-configuration to provision the **eMoflon-IBeX-VM** on a macOS-based runner until nested virtualization support gets added to the Linux-based runners.
+Therefore, we've adapted the CI-configuration to provision the **eMoflon-Neo-VM** on a macOS-based runner until nested virtualization support gets added to the Linux-based runners.
 
 ### Self-hosted Linux-based runners
 
