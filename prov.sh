@@ -115,7 +115,7 @@ printf "
 Encoding=UTF-8
 Name=Neo4j Browser
 Type=Link
-URL=localhost:7474
+URL=http://localhost:7474
 Icon=web-browser
 " > /home/vagrant/Desktop/neo4j.desktop
 
