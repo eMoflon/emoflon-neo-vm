@@ -46,7 +46,7 @@ cd ~/eclipse-apps
 # Get eclipse
 if [[ ! -f "./$ECLIPSE_ARCHIVE.zip" ]]; then
 	log "Downloading latest eMoflon Eclipse archive from Github."
-	curl -s https://api.github.com/repos/maxkratz/emoflon-neo-eclipse-build/releases/latest \
+	curl -s https://api.github.com/repos/eMoflon/emoflon-neo-eclipse-build/releases/latest \
         | grep "$ECLIPSE_ARCHIVE.zip" \
         | cut -d : -f 2,3 \
         | tr -d \" \
