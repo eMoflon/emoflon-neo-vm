@@ -1,6 +1,6 @@
 # eMoflon::Neo VM
 
-[![Build eMoflon::Neo VM](https://github.com/maxkratz/emoflon-neo-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/maxkratz/emoflon-neo-vm/actions/workflows/vagrant-up.yml)
+[![Build eMoflon::Neo VM](https://github.com/eMoflon/emoflon-neo-vm/actions/workflows/vagrant-up.yml/badge.svg?branch=main&event=push)](https://github.com/eMoflon/emoflon-neo-vm/actions/workflows/vagrant-up.yml)
 
 This repository is used to automatically build an [eMoflon::Neo](https://emoflon.org/neo/) virtual machine (VM).
 
@@ -10,13 +10,13 @@ This repository is used to automatically build an [eMoflon::Neo](https://emoflon
 - [Ubuntu 20.04](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-desktop)
 - [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
 - [Graphviz](https://graphviz.org/)
-- [eMoflon Neo Eclipse build](https://github.com/maxkratz/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
+- [eMoflon Neo Eclipse build](https://github.com/eMoflon/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
 - [Neo4j](https://neo4j.com/)
 
 
 ## Usage/Installation
 
-- Download the latest version from the [release page](https://github.com/maxkratz/emoflon-neo-vm/releases/latest).
+- Download the latest version from the [release page](https://github.com/eMoflon/emoflon-neo-vm/releases/latest).
 - Install [VirtualBox](https://www.virtualbox.org/) (or another Hypervisor compatible to `OVA` files).
 - Import the `OVA` file as new VM in VirtualBox. (More detailed description can be found [here](https://docs.oracle.com/cd/E26217_01/E26796/html/qs-import-vm.html).)
 - Use the credentials `vagrant:vagrant` to login.
