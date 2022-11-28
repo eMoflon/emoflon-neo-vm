@@ -8,7 +8,7 @@ This repository is used to automatically build an [eMoflon::Neo](https://emoflon
 ## Packages/Configuration
 
 - [Ubuntu 20.04](https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-desktop)
-- [OpenJDK 17](https://openjdk.org/projects/jdk/17/)
+- [OpenJDK 11](https://openjdk.org/projects/jdk/11/)
 - [Graphviz](https://graphviz.org/)
 - [eMoflon Neo Eclipse build](https://github.com/eMoflon/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
 - [Neo4j](https://neo4j.com/)
