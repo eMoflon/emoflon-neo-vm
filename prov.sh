@@ -29,9 +29,9 @@ log "Installing updates."
 sudo apt-get update
 sudo apt-get upgrade -y
 
-# Java/JDK17
+# Java/JDK11
 log "Installing OpenJDK."
-sudo apt-get install -y openjdk-17-jdk
+sudo apt-get install -y openjdk-11-jdk
 #java --version
 
 # Packages for building a new kernel
@@ -125,7 +125,7 @@ chmod u+x /home/vagrant/Desktop/*.desktop
 # https://debian.neo4j.com/
 log "Install Neo4j."
 wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
-echo 'deb https://debian.neo4j.com stable latest' | sudo tee /etc/apt/sources.list.d/neo4j.list
+echo 'deb https://debian.neo4j.com stable 4.2' | sudo tee /etc/apt/sources.list.d/neo4j.list
 sudo apt-get update
 sudo apt-get install -y neo4j
 sudo systemctl enable neo4j
