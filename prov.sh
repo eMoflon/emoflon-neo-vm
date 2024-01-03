@@ -133,7 +133,6 @@ sudo systemctl enable neo4j
 
 log "Clean-up"
 sudo apt-get remove -yq \
-        snapd \
         libreoffice-* \
         thunderbird \
         pidgin \
