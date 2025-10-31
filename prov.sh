@@ -27,11 +27,11 @@ log "Start provisioning."
 # Updates
 log "Installing updates."
 sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 
-# Java/JDK11
+# Java/JDK21
 log "Installing OpenJDK."
-sudo apt-get install -y openjdk-11-jdk
+sudo apt-get install -y openjdk-21-jdk
 #java --version
 
 # Packages for building a new kernel
@@ -121,6 +121,21 @@ Icon=web-browser
 " > /home/vagrant/Desktop/neo4j.desktop
 
 chmod u+x /home/vagrant/Desktop/*.desktop
+
+sudo mv /home/vagrant/Desktop/*.desktop /usr/share/xubuntu/applications/
+sudo ln -s /usr/share/xubuntu/applications/emoflon-app.desktop /home/vagrant/Desktop/emoflon-app.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-website.desktop /home/vagrant/Desktop/emoflon-website.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-tests.desktop /home/vagrant/Desktop/emoflon-tests.desktop
+sudo ln -s /usr/share/xubuntu/applications/neo4j.desktop /home/vagrant/Desktop/neo4j.desktop
+
+# Install additional CLI tools
+log "Install additional CLI tools."
+sudo apt-get install -yq \
+        git \
+        ncdu \
+        htop \
+        tmux \
+        rsync
 
 # Neo4j installation
 # https://debian.neo4j.com/

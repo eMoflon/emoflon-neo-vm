@@ -7,8 +7,8 @@ This repository is used to automatically build an [eMoflon::Neo](https://emoflon
 
 ## Packages/Configuration
 
-- [Ubuntu 22.04](https://app.vagrantup.com/gusztavvargadr/boxes/xubuntu-desktop-2204-lts)
-- [OpenJDK 11](https://openjdk.org/projects/jdk/11/)
+- [Ubuntu 24.04](https://app.vagrantup.com/gusztavvargadr/boxes/xubuntu-desktop-2404-lts)
+- [OpenJDK 21](https://openjdk.org/projects/jdk/21/)
 - [Graphviz](https://graphviz.org/)
 - [eMoflon Neo Eclipse build](https://github.com/eMoflon/emoflon-neo-eclipse-build) (variant: *eclipse-emoflon-linux-user*)
 - [Neo4j](https://neo4j.com/)
@@ -64,5 +64,7 @@ Required packages (at least):
 - `grep`
 - `VirtualBox`
 - `vagrant`
+
+There is a [script](./runner-setup.sh) available to install the necessary packages.
 
 **Please keep in mind that your runner (VM) needs the virtualization flag enabled and at least 10 GB of RAM!**
