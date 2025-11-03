@@ -146,6 +146,15 @@ sudo apt-get update
 sudo apt-get install -y neo4j
 sudo systemctl enable neo4j
 
+# Install OpenJDK 11 (necessary for Neo4J)
+# https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+sudo wget -O /opt/openjdk-11.0.2_linux-x64_bin.tar.gz https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+sudo tar -zxvf /opt/openjdk-11.0.2_linux-x64_bin.tar.gz -C /opt
+sudo rm /opt/openjdk-11.0.2_linux-x64_bin.tar.gz
+# Adapt Neo4J's systemd service file to use the old(er) JVM instead of the system's one
+sudo sed -i 's/Environment=\"NEO4J_CONF=\/etc\/neo4j\"\ \"NEO4J_HOME=\/var\/lib\/neo4j\"/Environment=\"NEO4J_CONF=\/etc\/neo4j\"\ \"NEO4J_HOME=\/var\/lib\/neo4j\"\ \"JAVA_HOME=\/opt\/jdk-11.0.2\"/' /usr/lib/systemd/system/neo4j.service
+sudo systemctl daemon-reload
+
 log "Clean-up"
 sudo apt-get remove -yq \
         libreoffice-* \
