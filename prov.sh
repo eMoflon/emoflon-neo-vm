@@ -27,11 +27,11 @@ log "Start provisioning."
 # Updates
 log "Installing updates."
 sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 
-# Java/JDK11
+# Java/JDK21
 log "Installing OpenJDK."
-sudo apt-get install -y openjdk-11-jdk
+sudo apt-get install -y openjdk-21-jdk
 #java --version
 
 # Packages for building a new kernel
@@ -122,6 +122,21 @@ Icon=web-browser
 
 chmod u+x /home/vagrant/Desktop/*.desktop
 
+sudo mv /home/vagrant/Desktop/*.desktop /usr/share/xubuntu/applications/
+sudo ln -s /usr/share/xubuntu/applications/emoflon-app.desktop /home/vagrant/Desktop/emoflon-app.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-website.desktop /home/vagrant/Desktop/emoflon-website.desktop
+sudo ln -s /usr/share/xubuntu/applications/emoflon-tests.desktop /home/vagrant/Desktop/emoflon-tests.desktop
+sudo ln -s /usr/share/xubuntu/applications/neo4j.desktop /home/vagrant/Desktop/neo4j.desktop
+
+# Install additional CLI tools
+log "Install additional CLI tools."
+sudo apt-get install -yq \
+        git \
+        ncdu \
+        htop \
+        tmux \
+        rsync
+
 # Neo4j installation
 # https://debian.neo4j.com/
 log "Install Neo4j."
@@ -130,6 +145,15 @@ echo 'deb https://debian.neo4j.com stable 4.2' | sudo tee /etc/apt/sources.list.
 sudo apt-get update
 sudo apt-get install -y neo4j
 sudo systemctl enable neo4j
+
+# Install OpenJDK 11 (necessary for Neo4J)
+# https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+sudo wget -O /opt/openjdk-11.0.2_linux-x64_bin.tar.gz https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+sudo tar -zxvf /opt/openjdk-11.0.2_linux-x64_bin.tar.gz -C /opt
+sudo rm /opt/openjdk-11.0.2_linux-x64_bin.tar.gz
+# Adapt Neo4J's systemd service file to use the old(er) JVM instead of the system's one
+sudo sed -i 's/Environment=\"NEO4J_CONF=\/etc\/neo4j\"\ \"NEO4J_HOME=\/var\/lib\/neo4j\"/Environment=\"NEO4J_CONF=\/etc\/neo4j\"\ \"NEO4J_HOME=\/var\/lib\/neo4j\"\ \"JAVA_HOME=\/opt\/jdk-11.0.2\"/' /usr/lib/systemd/system/neo4j.service
+sudo systemctl daemon-reload
 
 log "Clean-up"
 sudo apt-get remove -yq \
